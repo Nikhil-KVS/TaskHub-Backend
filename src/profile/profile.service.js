@@ -1,6 +1,5 @@
 const profileModel = require('../models/users.models')
 const CustomError = require('../error-handlers/custom.error');
-
 const logger = require('../config/logger');
 const { log } = require('winston');
 
@@ -13,7 +12,6 @@ class profileservice {
 
     async updatedetails(body, id) {
         try {
-
             logger.info('Inside profileservice: updatedetails method');
             const result = await profileModel.updateOne({ _id: id }, { $set: body });
 
@@ -23,9 +21,7 @@ class profileservice {
             }
         }
         catch (error) {
-
             logger.error(`Inside profileservice : updatedetails method: Error occured while updating profileDetails in db ${error.message}`);
-
             throw new CustomError((error instanceof CustomError) ? error.message : 'Error! Please try again.', error.statusCode);
         }
     }
@@ -37,16 +33,12 @@ class profileservice {
 */
     async getDetailst(admin, id) {
         try {
-
             logger.info('Inside profileservice: getDetailst method');
-
             let userId = null;
             if (!id) userId = admin;
             else userId = id;
             console.log('userId***********', userId);
-
             const details = await profileModel.findById({ _id: userId }, { email: 1, username: 1, mobileNumber: 1, city: 1, state: 1, zip: 1, Address: 1, role: 1 })
-
             return {
                 status: true,
                 message: 'tasks details getted successfully',

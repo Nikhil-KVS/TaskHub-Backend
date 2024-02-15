@@ -5,11 +5,8 @@ const userTasks = require('../../tasks/tasks.route');
 const userprofile = require('../../profile/profile.route');
 const settings = require('../../settings/settings.route');
 const role = require('../../userRoles/userRoles.route');
-
 const allUsers = require('../../users.js/users.route')
-
 const chart = require('../../piechart/piechart.route')
-
 
 /**
  * for signup and signin
@@ -41,10 +38,6 @@ router.use('/settings', settings);
 
 router.use('/chart', chart);
 
-
-
-
 router.use('/users', allUsers)
-
 
 module.exports = router

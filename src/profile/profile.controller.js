@@ -1,19 +1,15 @@
 const profileservice = require('./profile.service')
 const CustomError = require('../error-handlers/custom.error');
 const logger = require('../config/logger');
-
 const Default = require('../config/Default');
-
 const HTTP_STATUS = require('../constants/http.constants')
 
 // const logger=require('../config/logger')
 
 class profilecontoller extends Default {
-
 	constructor() {
 		super();
 	}
-
 	/**
 * @method save
 * @param {*} req express request handler to handle requests
@@ -22,10 +18,7 @@ class profilecontoller extends Default {
 * @returns returns successfull response when user details are saved successfully
 */
 	async updatedetails(req, res) {
-
-
 		try {
-
 			logger.info('Inside profilecontroller: updatedetails method');
 			const response = await profileservice.updatedetails(req.body, req.payload.user._id);
 
@@ -52,7 +45,6 @@ class profilecontoller extends Default {
 		}
 	}
 
-
 	/**
 * @method getDetailst
 * @param {*} req express request handler to handle requests
@@ -62,8 +54,6 @@ class profilecontoller extends Default {
 */
 	async getDetailst(req, res) {
 		try {
-
-
 			logger.info('Inside profilecontroller: getDetailst method');
 
 			console.log(typeof (req.params.taskId), "typeeeeeeeeeeeeeeeeeeeeeeeee")
@@ -93,7 +83,6 @@ class profilecontoller extends Default {
 			});
 		}
 	}
-
 }
 
 module.exports = new profilecontoller();

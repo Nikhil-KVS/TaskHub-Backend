@@ -20,35 +20,28 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-
   },
   city: {
     type: String,
-
     trim: true,
   },
   state: {
     type: String,
     trim: true,
   },
-
   zip: {
     type: String,
-
     trim: true,
   },
   Address: {
     type: String,
     trim: true,
   },
-  
-  role:{
-       type:String,
-       trim:true,
-       default: 'people',
-
+  role: {
+    type: String,
+    trim: true,
+    default: 'people',
   }
-
 });
 
 const User = mongoose.model('users', userSchema);
